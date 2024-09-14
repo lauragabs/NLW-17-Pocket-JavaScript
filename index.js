@@ -1,16 +1,16 @@
-const {select, input} = require('@inquirer/prompts')
+const { select, input } = require('@inquirer/prompts')
 
 let meta = {
     value: 'Tomar café da manhã',
     checked: false,
 }
 
-let metas = [ meta ]
+let metas = [meta]
 
 const cadastrarMetas = async () => {
-    const meta = await input [{mensage: 'Digite nova meta:'}]
+    const meta = await input[{ mensage: 'Digite nova meta:' }]
 
-    if (meta.length  == 0) {
+    if (meta.length == 0) {
         console.log('Meta não pode ser vazia')
         return
     }
@@ -32,7 +32,7 @@ const listarMetas = async () => {
         m.checked = false
     })
 
-    if(respostas.length == 0) {
+    if (respostas.length == 0) {
         console.log("Nenhuma meta selecionada!")
         return
     }
@@ -50,23 +50,40 @@ const listarMetas = async () => {
 
 }
 
-const metasRealizadas  = async () => {
+const metasRealizadas = async () => {
     const realizadas = metas.filter((meta) => {
         return meta.checked
     })
 
-    if (realizadas.length == 0){
+    if (realizadas.length == 0) {
         console.log('Nenhuma meta concluída')
     }
 
     await select({
-        mensage: 'Metas Realizadas',
+        mensage: 'Metas Realizadas' + realizadas.length,
         choices: [...realizadas],
     })
 }
 
+const metasAbertas = async () => {
+    const abertas = metas.filter((meta) => {
+        return !meta.checked
+    })
 
-const start = async() => {
+    if(abertas.length == 0){
+        console.log('Nenhuma meta aberta')
+        return 
+    }
+
+    await select({
+        mensage: 'Metas Abertas' +  abertas.length,
+
+        choices: [...abertas]
+    })
+}
+
+
+const start = async () => {
 
     while (true) {
 
@@ -83,7 +100,11 @@ const start = async() => {
                 },
                 {
                     name: 'Metas realizadas',
-                    value: 'metasRealizadas'
+                    value: 'realizadas'
+                },
+                {
+                    name: 'Metas Abertas',
+                    value: 'abertas'
                 },
                 {
                     name: 'Sair',
@@ -91,8 +112,8 @@ const start = async() => {
                 }
             ]
         })
-        
-        switch (opcao){
+
+        switch (opcao) {
             case "cadastar":
                 await cadastrarMetas
                 console.log(metas)
@@ -103,11 +124,14 @@ const start = async() => {
             case "realizadas":
                 await metasRealizadas
                 break;
+            case "Abertas":
+                await metasAbertas
+                break;
             case "sair":
                 console.log('Até a próxima!')
                 return
-            
+
         }
     }
 }
-start ()
+start()
