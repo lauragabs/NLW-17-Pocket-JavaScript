@@ -1,7 +1,7 @@
 const {select, input} = require('@inquirer/prompts')
 
 let meta = {
-    value: 'Tomar 3L de água por dia',
+    value: 'Tomar café da manhã',
     checked: false,
 }
 
@@ -77,7 +77,7 @@ const start = async() => {
                 console.log(metas)
                 break;
             case "listar":
-                listarMetas
+                await listarMetas
                 break;
             case "sair":
                 console.log('Até a próxima!')
