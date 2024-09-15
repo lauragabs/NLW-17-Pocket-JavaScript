@@ -25,5 +25,28 @@ Este é um aplicativo interativo de metas, desenvolvido durante o evento **NLW P
 
 1. Clone o repositório:
    ```bash
-   git clone [URL_DO_SEU_REPOSITORIO]
-``` 
+   git clone [https://github.com/lauragabs/NLW-17-Pocket-JavaScript.git]
+   
+2. Instale as dependências:
+   ```bash
+   npm install
+   
+3. Execute o aplicativo:
+   ```bash
+   node index.js
+
+## Estrutura de Arquivos
+
+- `index.js`: Arquivo principal que contém a lógica do aplicativo.
+- `metas.json`: Arquivo que armazena as metas cadastradas.
+- `assuntos-vistos.md`: Lista de tópicos abordados durante o desenvolvimento do projeto.
+- `to-do.md`: Lista de funcionalidades desenvolvidas.
+
+## Funcionalidades Futuras
+
+- Validação mais robusta para a entrada de dados.
+- Melhorar a interface de prompts para maior personalização.
+
+## Créditos
+
+Projeto desenvolvido durante o evento **NLW Pocket: Javascript** da Rocketseat.
