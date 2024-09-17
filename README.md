@@ -21,20 +21,6 @@ Este é um aplicativo interativo de metas, desenvolvido durante o evento **NLW P
 - **FS (File System)**: Módulo do Node.js para leitura e escrita em arquivos.
 - **JSON**: Formato para armazenar as metas.
 
-## Como Executar
-
-1. Clone o repositório:
-   ```bash
-   git clone [https://github.com/lauragabs/NLW-17-Pocket-JavaScript.git]
-   
-2. Instale as dependências:
-   ```bash
-   npm install
-   
-3. Execute o aplicativo:
-   ```bash
-   node index.js
-
 ## Estrutura de Arquivos
 
 - `index.js`: Arquivo principal que contém a lógica do aplicativo.
